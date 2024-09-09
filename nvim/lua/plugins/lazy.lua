@@ -1,3 +1,4 @@
+
 -- Install lazylazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -20,6 +21,7 @@ require('lazy').setup({
   'mbbill/undotree', 
   'laytan/cloak.nvim', 
   'eandrju/cellular-automaton.nvim', 
+  { "folke/neodev.nvim", opts = {} },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
@@ -62,7 +64,6 @@ require('lazy').setup({
     },
   },
   'folke/zen-mode.nvim',
-  'David-Kunz/gen.nvim',
   'tpope/vim-dadbod',
   'tpope/vim-obsession',
   'kristijanhusak/vim-dadbod-ui',
@@ -150,7 +151,6 @@ require('lazy').setup({
       }
     end
   },
-
   {
     "folke/todo-comments.nvim",
     dependencies = "nvim-lua/plenary.nvim",
@@ -241,7 +241,7 @@ require('lazy').setup({
     }
   },
 
-  { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap"} },
+  { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
   'theHamsta/nvim-dap-virtual-text',
   'leoluz/nvim-dap-go',
 
@@ -266,7 +266,7 @@ require('lazy').setup({
   {
   'prettier/vim-prettier',
     run = 'npm install',
-    ft = { 'c++', 'solidity' ,'json', 'javascript','c', 'cpp', 'hpp', 'h', 'typescript', 'javascriptreact', 'typescriptreact'},
+    ft = {'java', 'c++', 'solidity' ,'json', 'javascript','c', 'cpp', 'hpp', 'h', 'typescript', 'javascriptreact', 'typescriptreact'},
   },
   {
     "folke/twilight.nvim",
@@ -283,5 +283,3 @@ require('lazy').setup({
   --   }
   -- }
 )
-
-

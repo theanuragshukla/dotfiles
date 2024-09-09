@@ -5,15 +5,47 @@ vim.opt.incsearch = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 
 vim.opt.smartindent = true
 
 vim.opt.wrap = true
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+USER = os.getenv("USER")
+local curr_group = vim.fn.system("id -ng 2> /dev/null | tr -d '\n'")
+
+SWAPDIR = "/home/" .. USER .. "/.vim/swapdir//"
+BACKUPDIR = "/home/" .. USER .. "/.nvim/backupdir//"
+UNDODIR = "/home/" .. USER .. "/.vim/undodir//"
+
+if vim.fn.isdirectory(SWAPDIR) == 0 then
+       vim.fn.mkdir(SWAPDIR, "p", "0o700")
+end
+
+if vim.fn.isdirectory(BACKUPDIR) == 0 then
+       vim.fn.mkdir(BACKUPDIR, "p", "0o700")
+end
+
+if vim.fn.isdirectory(UNDODIR) == 0 then
+       vim.fn.mkdir(UNDODIR, "p", "0o700")
+end
+
+-- Enable swap, backup, and persistant undo
+vim.opt.directory = SWAPDIR
+vim.opt.backupdir = BACKUPDIR
+vim.opt.undodir = UNDODIR
+vim.opt.swapfile = true
+vim.opt.backup = true
+vim.opt.undofile = true
+
+-- Append backup files with timestamp
+vim.api.nvim_create_autocmd("BufWritePre", {
+       callback = function()
+               local extension = "~" .. vim.fn.strftime("%Y-%m-%d-%H%M%S")
+               vim.o.backupext = extension
+       end,
+})
+
 
 vim.opt.scrolloff = 8
 -- Make line numbers default
