@@ -250,7 +250,7 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'lewis6991/gitsigns.nvim',
   'nordtheme/vim',
-
+  'mfussenegger/nvim-jdtls',
   'navarasu/onedark.nvim', -- Theme inspired by Atom
   'nvim-lualine/lualine.nvim', -- Fancier statusline
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
