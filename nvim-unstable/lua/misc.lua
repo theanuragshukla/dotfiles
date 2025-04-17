@@ -36,4 +36,3 @@ require("catppuccin").setup {
 }
 vim.cmd.colorscheme "catppuccin" -- set to mocha flavour 
 vim.o.background = "dark" -- colorscheme is set to latte flavour 
-

@@ -1,7 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export JDK_HOME:/usr/lib/jvm/java\x2d1\x2e11\x2e0\x2dopenjdk\x2damd64
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_za:zoxide\x20add
 SETUVAR _fish_abbr_zq:zoxide\x20query
 SETUVAR _fish_abbr_zqi:zoxide\x20query\x20\x2di
@@ -36,4 +36,4 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/anurag/\x2elocal/bin\x1e/home/anurag/\x2efzf/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin\x1e/usr/local/go/bin
+SETUVAR fish_user_paths:/home/anurag/\x2epyenv/bin\x1e/home/anurag/\x2elocal/bin\x1e/home/anurag/\x2efzf/bin\x1e/usr/local/go/bin

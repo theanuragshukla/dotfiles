@@ -47,15 +47,11 @@ end
 -- Setup mason so it can manage external tooling
 require('mason').setup()
 
+require('java').setup()
+
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 
-  'lua_ls',
-  'ts_ls', -- need nodejs/npm installed
-  'bashls',
-  'gopls', --need go installed
-  'pyright' --need pythonn installed
-}
+local servers = { 'pyright', 'ts_ls', 'gopls'  }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
@@ -72,6 +68,7 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+require('lspconfig').jdtls.setup({})
 
 -- Turn on lsp status information
 require('fidget').setup()
@@ -83,7 +80,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-require('lspconfig').lua_ls.setup {
+require('lspconfig').lua_lsp.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -148,7 +145,7 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
-    { name = "copilot", group_index = 2 },
+     { name = "copilot", group_index = 2 },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = "neorg" },
@@ -164,5 +161,4 @@ vim.api.nvim_create_autocmd('FileType', {
     })
   end,
 })
-
 

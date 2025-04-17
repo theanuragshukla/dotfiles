@@ -85,4 +85,3 @@ require("obsidian").setup({
       tags = "",
   },
 })
-

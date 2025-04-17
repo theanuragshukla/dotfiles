@@ -3,7 +3,7 @@ require('gitsigns').setup {
     add = { text = '+' },
     change = { text = '~' },
     delete = { text = '_' },
-    topdelete = { text = 'ΓÇ╛' },
+    topdelete = { text = '‾' },
     changedelete = { text = '~' },
   },
   current_line_blame = true,
@@ -47,5 +47,4 @@ require('gitsigns').setup {
     map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
   end
 }
-
 

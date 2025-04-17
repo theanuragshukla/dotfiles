@@ -26,7 +26,9 @@ require('lazy').setup({
             local opts = require "cloak"
             require("cloak").setup(opts)
         end,
-},
+    },
+  { 'wakatime/vim-wakatime', lazy = false },
+  {'nvim-java/nvim-java'},
   'eandrju/cellular-automaton.nvim', 
   { "folke/neodev.nvim", opts = {} },
   {
@@ -101,8 +103,7 @@ require('lazy').setup({
     end,
   },
 
-    'ThePrimeagen/git-worktree.nvim',
-
+  'ThePrimeagen/git-worktree.nvim',
   'tpope/vim-surround',
   'xiyaowong/nvim-transparent',
   { 
@@ -258,6 +259,7 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'lewis6991/gitsigns.nvim',
   'nordtheme/vim',
+  'mfussenegger/nvim-jdtls',
   'navarasu/onedark.nvim', -- Theme inspired by Atom
   'nvim-lualine/lualine.nvim', -- Fancier statusline
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
@@ -290,4 +292,3 @@ require('lazy').setup({
   --   }
   -- }
 )
-
