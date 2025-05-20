@@ -6,7 +6,10 @@ require('nvim-treesitter.configs').setup {
     'go', 'lua', 'python', 'rust', 'typescript', 'regex', 
     'bash', 'markdown', 'markdown_inline', 'kdl', 'sql', 'c', 'cpp', 'javascript', "tsx",
   },
-
+  fold = {
+    enable = true,
+    disable = { 'python' }, -- Remove this to fold on those filetypes
+  },
   highlight = { enable = true },
   indent = { enable = true },
   incremental_selection = {

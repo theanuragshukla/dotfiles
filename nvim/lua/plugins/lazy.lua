@@ -18,6 +18,17 @@ vim.o.termguicolors = true
 
 require('lazy').setup({
   'onsails/lspkind.nvim',
+  --[[ {
+  "kevinhwang91/nvim-ufo",
+  dependencies = {
+    "kevinhwang91/promise-async",
+    "nvim-treesitter/nvim-treesitter",
+    "neovim/nvim-lspconfig"
+  },
+  config = function()
+    require("ufo").setup()
+  end,
+}, ]]
   'mbbill/undotree', 
   {
     'barrett-ruth/import-cost.nvim',
