@@ -19,26 +19,60 @@ vim.o.termguicolors = true
 require('lazy').setup({
   'onsails/lspkind.nvim',
   'mbbill/undotree', 
- {
-        "laytan/cloak.nvim",
-         event = 'VeryLazy',
-        config = function()
-            local opts = require "cloak"
-            require("cloak").setup(opts)
-        end,
-},
+  {
+    'barrett-ruth/import-cost.nvim',
+    build = 'sh install.sh npm',
+    config = true
+  },
+  {
+    "laytan/cloak.nvim",
+    event = 'VeryLazy',
+    config = function()
+      local opts = require "cloak"
+      require("cloak").setup(opts)
+    end,
+  },
   'eandrju/cellular-automaton.nvim', 
   { "folke/neodev.nvim", opts = {} },
+  {
+    "windwp/nvim-ts-autotag",
+    event = "InsertEnter", -- or "VeryLazy" if you want it to load late
+    config = function()
+      require("nvim-ts-autotag").setup({
+        opts = {
+          enable_close = true, -- Auto close tags
+          enable_rename = true, -- Auto rename pairs of tags
+          enable_close_on_slash = true -- Auto close on trailing </
+        },
+        --[[ per_filetype = {
+          html = {
+            enable_close = false
+          },
+          tsx = {
+            enable_close = true,
+            enable_rename = true,
+          },
+          javascriptreact = {
+            enable_close = true,
+          },
+          typescriptreact = {
+            enable_close = true,
+          }
+        } ]]
+      })
+    end,
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
   },
   {
-      "zbirenbaum/copilot-cmp",
-      config = function()
-          require("copilot_cmp").setup()
-      end,
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
   },
   {
     "iamcco/markdown-preview.nvim",
@@ -101,7 +135,7 @@ require('lazy').setup({
     end,
   },
 
-    'ThePrimeagen/git-worktree.nvim',
+  'ThePrimeagen/git-worktree.nvim',
 
   'tpope/vim-surround',
   'xiyaowong/nvim-transparent',
@@ -271,7 +305,7 @@ require('lazy').setup({
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
   {
-  'prettier/vim-prettier',
+    'prettier/vim-prettier',
     run = 'npm install',
     ft = {'java', 'c++', 'solidity' ,'json', 'javascript','c', 'cpp', 'hpp', 'h', 'typescript', 'javascriptreact', 'typescriptreact'},
   },

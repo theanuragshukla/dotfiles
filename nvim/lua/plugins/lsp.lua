@@ -54,7 +54,8 @@ local servers = {
   'ts_ls', -- need nodejs/npm installed
   'bashls',
   'gopls', --need go installed
-  'pyright' --need pythonn installed
+  'pyright', --need pythonn installed
+  'tailwindcss'
 }
 
 -- Ensure the servers above are installed
@@ -106,6 +107,24 @@ require('lspconfig').lua_ls.setup {
     },
   },
 }
+
+require('lspconfig').tailwindcss.setup({
+on_attach = function(client, bufnr)
+    -- Optional: keybindings, formatting, etc.
+  end,
+  settings = {
+    tailwindCSS = {
+      experimental = {
+        classRegex = {
+          -- For Tailwind with classnames, clsx, etc.
+          { "clsx\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+          { "tw\\`([^`]*)\\`", "tw\\`([^`]*)\\`" },
+        }
+      },
+    }
+  },
+})
+
 --
 -- nvim-cmp setup
 local cmp = require 'cmp'
