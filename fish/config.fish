@@ -5,7 +5,7 @@ zoxide init fish | source
 # alias ll='exa -l --icons --group-directories-first  --time-style long-iso'
 # alias la='exa -l -a --icons --group-directories-first  --time-style long-iso'
 alias vim='nvim'
-#alias cd='z'
+alias cd='z'
 
 
 # pyenv init

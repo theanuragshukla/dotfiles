@@ -30,6 +30,11 @@ require('lazy').setup({
   end,
 }, ]]
   'mbbill/undotree', 
+  "rebelot/kanagawa.nvim",
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+  },
   {
     'barrett-ruth/import-cost.nvim',
     build = 'sh install.sh npm',

@@ -28,7 +28,7 @@ vim.keymap.set("n", "<leader>ee", "<cmd>GoIfErr<cr>",
 vim.api.nvim_set_keymap("n", "<leader>gc", ":Git commit -m \"", {noremap=false})
 vim.api.nvim_set_keymap("n", "<leader>gp", ":Git push -u origin HEAD<CR>", {noremap=false})
 -- optional background flavour setup 
-require("catppuccin").setup {
+--[[ require("catppuccin").setup {
   background = {
     light = "latte",
     dark = "mocha"
@@ -36,4 +36,4 @@ require("catppuccin").setup {
 }
 vim.cmd.colorscheme "catppuccin" -- set to mocha flavour 
 vim.o.background = "dark" -- colorscheme is set to latte flavour 
-
+]]
