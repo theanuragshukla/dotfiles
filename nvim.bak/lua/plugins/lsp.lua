@@ -56,7 +56,7 @@ local servers = {
   'gopls', --need go installed
   'pyright', --need pythonn installed
   'tailwindcss',
-  'html',
+  'html'
 }
 
 -- Ensure the servers above are installed
@@ -69,15 +69,10 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 for _, lsp in ipairs(servers) do
-  -- require('lspconfig')[lsp].setup {
-  --   on_attach = on_attach,
-  --   capabilities = capabilities,
-  -- }
-	vim.lsp.config(lsp, {
+  require('lspconfig')[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-	})
-	vim.lsp.enable(lsp)
+  }
 end
 
 -- Turn on lsp status information
@@ -90,7 +85,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-vim.lsp.config('lua_ls', {
+require('lspconfig').lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -112,9 +107,9 @@ vim.lsp.config('lua_ls', {
       telemetry = { enable = false },
     },
   },
-})
+}
 
-vim.lsp.config('tailwindcss', {
+require('lspconfig').tailwindcss.setup({
 on_attach = function(client, bufnr)
     -- Optional: keybindings, formatting, etc.
   end,
@@ -176,6 +171,7 @@ cmp.setup {
     { name = "copilot", group_index = 2 },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = "neorg" },
   },
 }
 

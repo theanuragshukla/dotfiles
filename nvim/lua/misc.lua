@@ -13,27 +13,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Options through Telescope
 vim.api.nvim_set_keymap("n", "<Leader><tab>", "<Cmd>lua require('telescope.builtin').commands()<CR>", {noremap=false})
 
--- Fterm
-vim.api.nvim_set_keymap("n", "<leader>tt", ":lua require('FTerm').toggle()<CR>", {noremap=true})
-vim.api.nvim_set_keymap("t", "<leader>tt", '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', {noremap=true})
-
 -- Noice
 vim.api.nvim_set_keymap("n", "<leader>nn", ":NoiceDismiss<CR>", {noremap=true})
 
 vim.keymap.set("n", "<leader>ee", "<cmd>GoIfErr<cr>",
   {silent = true, noremap = true}
 )
-
--- Git
-vim.api.nvim_set_keymap("n", "<leader>gc", ":Git commit -m \"", {noremap=false})
-vim.api.nvim_set_keymap("n", "<leader>gp", ":Git push -u origin HEAD<CR>", {noremap=false})
--- optional background flavour setup 
---[[ require("catppuccin").setup {
-  background = {
-    light = "latte",
-    dark = "mocha"
-  }
-}
-vim.cmd.colorscheme "catppuccin" -- set to mocha flavour 
-vim.o.background = "dark" -- colorscheme is set to latte flavour 
-]]

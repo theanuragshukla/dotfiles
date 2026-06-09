@@ -52,4 +52,3 @@ vim.keymap.set("n", "<Leader>sR", "<CMD>lua require('telescope').extensions.git_
 vim.keymap.set("n", "<Leader>sn", "<CMD>lua require('telescope').extensions.notify.notify()<CR>", silent)
 
 
-

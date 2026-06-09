@@ -1,4 +1,6 @@
 vim.api.nvim_set_keymap("i", "jj", "<Esc>", {noremap=false})
+-- twilight
+vim.api.nvim_set_keymap("n", "tw", ":Twilight<enter>", {noremap=false})
 -- buffers
 vim.api.nvim_set_keymap("n", "tk", ":blast<enter>", {noremap=false})
 vim.api.nvim_set_keymap("n", "tj", ":bfirst<enter>", {noremap=false})
