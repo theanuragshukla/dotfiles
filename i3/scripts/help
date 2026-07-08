@@ -1,0 +1,44 @@
+#!/bin/bash
+
+SXHKDRC="$HOME/.config/i3/sxhkd/sxhkdrc"
+THEME="$HOME/.config/i3/rofi/keybinds.rasi"
+
+# Pull accent color from the active theme (first #hex inside `window { }`)
+ACCENT=$(awk '/^window[[:space:]]*\{/,/^\}/' "$THEME" | grep -oE '#[0-9a-fA-F]{6}' | head -1)
+ACCENT=${ACCENT:-#ff8f40}
+
+rows=$(awk -v accent="$ACCENT" '
+    function xmlesc(s) {
+        gsub(/&/, "\\&amp;", s)
+        gsub(/</, "\\&lt;", s)
+        return s
+    }
+    BEGIN { last = "" }
+
+    # Section marker: # === NAME ===
+    /^#[[:space:]]*===[[:space:]]+.+[[:space:]]+===[[:space:]]*$/ {
+        s = $0
+        sub(/^#[[:space:]]*===[[:space:]]+/, "", s)
+        sub(/[[:space:]]+===[[:space:]]*$/, "", s)
+        printf "<span size=\"large\" weight=\"bold\" foreground=\"%s\">── %s ──</span>\n", accent, xmlesc(s)
+        last = ""
+        next
+    }
+
+    # Regular comment → buffer as description
+    /^#/ { last = substr($0, 3); next }
+
+    # Keybind line (starts with letter, including XF86 / Print)
+    /^[A-Za-z]/ && last {
+        key  = xmlesc($0)
+        desc = xmlesc(last)
+        printf "<b>%-30s</b>  %s\n", key, desc
+        last = ""
+        next
+    }
+
+    { last = "" }
+' "$SXHKDRC")
+
+echo "$rows" | rofi -dmenu -markup-rows -i -p "Keybindings" \
+    -line-padding 4 -hide-scrollbar -theme "$THEME"

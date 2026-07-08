@@ -1,0 +1,17 @@
+include $HOME/.config/i3/workspaces.conf
+include $HOME/.config/i3/rules.conf
+
+set $mod Mod4
+font pango:JetBrainsMono Nerd Font 12
+
+include $HOME/.config/i3/colors.conf
+
+# Add padding to window titles
+for_window [class=".*"] title_format "  %title"
+
+exec_always --no-startup-id ~/.config/i3/scripts/autostart.sh
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+
