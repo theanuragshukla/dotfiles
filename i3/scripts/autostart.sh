@@ -5,7 +5,7 @@
 
 
 lxpolkit &
-greenclip daemon &
+~/.local/bin/greenclip daemon &
 xsettingsd &
 dunst -config ~/.config/i3/dunst/dunstrc &
 # picom --config ~/.config/i3/picom/picom.conf -b &

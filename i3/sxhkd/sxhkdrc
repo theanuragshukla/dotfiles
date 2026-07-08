@@ -5,7 +5,7 @@ super + space
 	rofi -show drun -modi drun -line-padding 4 -hide-scrollbar -show-icons -theme ~/.config/i3/rofi/config.rasi
 
 super + v
-rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+    rofi -config ~/.config/i3/rofi/config.rasi -modi "clipboard:~/.local/bin/greenclip print" -show clipboard -run-command '~/.local/bin/greenclip print %s' && xdotool key ctrl+v
 
 # Launch Terminal (Ghostty)
 super + Return
