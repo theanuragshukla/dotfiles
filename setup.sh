@@ -34,6 +34,7 @@ declare -A CONFIG_MAP=(
     ["polybar"]="$HOME/.config/polybar"
     ["starship.toml"]="$HOME/.config/starship.toml"
     ["zsh"]="$HOME/.config/zsh"
+    ["bash"]="$HOME/.config/bash"
     [".zshrc"]="$HOME/.zshrc"
     [".bashrc"]="$HOME/.bashrc"
     [".bash_profile"]="$HOME/.bash_profile"
