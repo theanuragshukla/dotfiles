@@ -40,4 +40,4 @@ SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_user_paths:/home/anurag/\x2epyenv/bin\x1e/home/anurag/\x2elocal/bin\x1e/home/anurag/\x2efzf/bin\x1e/usr/local/go/bin
-SETUVAR nvm_default_version:22
+SETUVAR nvm_default_version:26

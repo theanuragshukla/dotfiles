@@ -50,13 +50,13 @@ require('mason').setup()
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
 local servers = { 
-  'lua_ls',
+ -- 'lua_ls',
   'ts_ls', -- need nodejs/npm installed
-  'bashls',
-  'gopls', --need go installed
-  'pyright', --need pythonn installed
-  'tailwindcss',
-  'html',
+ -- 'bashls',
+  -- 'gopls', --need go installed
+--   'pyright', --need pythonn installed
+--  'tailwindcss',
+ -- 'html',
 }
 
 -- Ensure the servers above are installed
@@ -176,6 +176,8 @@ cmp.setup {
     { name = "copilot", group_index = 2 },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+		{ name = "buffer" },
+    { name = "path" },
   },
 }
 

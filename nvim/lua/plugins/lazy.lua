@@ -29,7 +29,10 @@ require('lazy').setup({
 	},
 	{ -- Autocompletion
 		'hrsh7th/nvim-cmp',
-		dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+		dependencies = {
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+			'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
 	},
 
 	{ -- Highlight, edit, and navigate code
@@ -156,7 +159,14 @@ require('lazy').setup({
 },
 
   'tpope/vim-fugitive',
-  'lewis6991/gitsigns.nvim',
+	{
+		'lewis6991/gitsigns.nvim',
+		config = function()
+			require('gitsigns').setup {
+				current_line_blame = true,
+			}
+		end
+			},
 	  {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end

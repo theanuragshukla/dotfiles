@@ -7,12 +7,4 @@ zoxide init fish | source
 alias vim='nvim'
 alias cd='z'
 
-
-# pyenv init
-if command -v pyenv 1>/dev/null 2>&1
-  pyenv init - | source
-end
-
-
-# Added by Antigravity CLI installer
-set -gx PATH "/home/anurag/.local/bin" $PATH
+set -gx NVM_DIR $HOME/.nvm

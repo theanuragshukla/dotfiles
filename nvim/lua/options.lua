@@ -70,7 +70,8 @@ vim.o.updatetime = 250
 vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
-vim.cmd.colorscheme "onedark"
+-- vim.cmd.colorscheme "onedark"
+vim.cmd.colorscheme "nord"
 
 --vim.cmd()
 vim.opt.clipboard = 'unnamedplus'
