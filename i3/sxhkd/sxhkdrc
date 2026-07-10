@@ -340,7 +340,7 @@ XF86MonBrightnessDown
 
 # Take a Screenshot (Region Select)
 super + shift + s
-	flameshot gui --path ~/Screenshots/
+	flameshot gui
 
 # Take a Fullscreen Screenshot
 super + s
