@@ -42,12 +42,13 @@ declare -A CONFIG_MAP=(
     [".gitconfig"]="$HOME/.gitconfig"
     [".gitignore_global"]="$HOME/.gitignore_global"
     [".inputrc"]="$HOME/.inputrc"
+    ["ghostty"]="$HOME/.config/ghostty"
     [".tmux.conf"]="$HOME/.tmux.conf"
     [".vimrc"]="$HOME/.vimrc"
     ["vim"]="$HOME/.vim"
     ["ssh/config"]="$HOME/.ssh/config"
     ["scripts"]="$HOME/.local/bin/scripts"
-    ["bin"]="$HOME/.local/bin/dotbin"
+    ["libinput-gestures.conf"]="$HOME/.config/libinput-gestures.conf"
 )
 
 # ── TTY-safe read ─────────────────────────────────────────────────────────────
