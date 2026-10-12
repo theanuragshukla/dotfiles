@@ -10,6 +10,11 @@ include $HOME/.config/i3/colors.conf
 for_window [class=".*"] title_format "  %title"
 
 exec_always --no-startup-id ~/.config/i3/scripts/autostart.sh
+exec --no-startup-id libinput-gestures-setup start
+exec --no-startup-id sh -c 'sleep 2 && xinput set-prop "SYNA32CE:00 06CB:CE17 Touchpad" "libinput Tapping Enabled" 1'
+exec --no-startup-id xinput set-prop "SYNA32CE:00 06CB:CE17 Touchpad" "libinput Tapping Button Mapping Enabled" 1 0
+exec --no-startup-id sh -c 'sleep 2 && xinput set-prop "SYNA32CE:00 06CB:CE17 Touchpad" "libinput Natural Scrolling Enabled" 1'
+exec --no-startup-id light-locker --lock-on-suspend --lock-on-lid
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

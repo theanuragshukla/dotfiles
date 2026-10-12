@@ -20,6 +20,7 @@ WEZTERM_CONF="$HOME/.config/wezterm/wezterm.lua"
 GTK3_CONF="$HOME/.config/gtk-3.0/settings.ini"
 XSETTINGSD_CONF="$HOME/.xsettingsd"
 STATE="$I3_DIR/.current_theme"
+NVIM_THEME_FILE="$HOME/.config/nvim/current_theme.lua"
 
 # --- helpers ---
 
@@ -139,7 +140,19 @@ polybar-msg cmd quit 2>/dev/null || true
 i3-msg reload >/dev/null
 ~/.config/i3/polybar/polybar-i3 &
 
-# 10. Restart dunst with new colors, then notify
+# 10. NVIM theme
+vim_scheme=$(cfg_get "$CONF" vim)
+if [ -n "$vim_scheme" ]; then
+    echo "return \"${vim_scheme}\"" > "$NVIM_THEME_FILE"
+
+    # Live-reload any running nvim instances that exposed a server socket
+    for sock in /tmp/nvim*/0 "$XDG_RUNTIME_DIR"/nvim.*.0; do
+        [ -S "$sock" ] || continue
+        nvim --server "$sock" --remote-send "<Cmd>colorscheme ${vim_scheme}<CR>" 2>/dev/null
+    done
+fi
+
+# 11. Restart dunst with new colors, then notify
 pkill -x dunst 2>/dev/null || true
 dunst -config "$DUNST_CONF" >/dev/null 2>&1 &
 sleep 0.4

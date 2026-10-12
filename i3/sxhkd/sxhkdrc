@@ -35,14 +35,6 @@ super + f
 super + e
 	geany
 
-# Launch Google Lynx
-super + g
-	~/.config/i3/scripts/google-lynx
-
-# Named scratchpad: audio (pulsemixer)
-super + alt + a
-	~/.config/i3/scripts/scratchpad pulsemixer pulsemixer
-
 # Move current window to scratchpad
 super + alt + s
 	i3-msg move scratchpad
@@ -50,14 +42,6 @@ super + alt + s
 # Toggle general scratchpad
 super + alt + space
 	i3-msg scratchpad show
-
-# Launch Discord
-super + d
-	Discord
-
-# Launch OBS (Screen Recording/Streaming)
-super + o
-	obs
 
 # === WINDOW STATE ===
 
@@ -344,7 +328,7 @@ super + shift + s
 
 # Take a Fullscreen Screenshot
 super + s
-	flameshot full --path ~/Screenshots/
+	flameshot full --path ~/Pictures/Screenshots//
 
 # === SYSTEM ===
 
