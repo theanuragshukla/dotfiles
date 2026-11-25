@@ -1,0 +1,10 @@
+#!/bin/bash
+
+current=$(brightnessctl -m | cut -d, -f4 | tr -d '%')
+next=$((current - 5))
+
+if [ "$next" -lt 5 ]; then
+    next=5
+fi
+
+brightnessctl set "$next"%

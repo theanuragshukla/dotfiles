@@ -1,0 +1,14 @@
+theme = Nord
+
+# appearance
+background-opacity = 0.95
+
+# clean look
+window-decoration = none
+
+# typography
+font-size = 14
+
+shell-integration = detect
+shell-integration-features = ssh-env,ssh-terminfo
+

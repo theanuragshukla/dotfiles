@@ -27,6 +27,23 @@ require('lazy').setup({
 			'j-hui/fidget.nvim',
 		}
 	},
+	{
+	'xeluxee/competitest.nvim',
+	dependencies = 'MunifTanjim/nui.nvim',
+	config = function() require('competitest').setup() end,
+},
+	-- Lua
+{
+  "folke/zen-mode.nvim",
+  opts = {}
+},
+	{
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+},
 	{ -- Autocompletion
 		'hrsh7th/nvim-cmp',
 		dependencies = {
@@ -49,6 +66,24 @@ require('lazy').setup({
 	'nvim-telescope/telescope-symbols.nvim',
 	{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
 	'nordtheme/vim',
+	  { 'rktjmp/lush.nvim' },
+  {
+    'Lokaltog/monotone.nvim',
+    lazy = false,
+    config = function()
+      -- Optional: Set your background preference ('dark' or 'light')
+      vim.o.background = 'dark' 
+      vim.cmd('colorscheme monotone')
+    end
+  },
+{
+  "cranberry-clockworks/coal.nvim",
+  lazy = false,
+  priority = 1000,
+  config = function()
+    vim.cmd.colorscheme("coal")
+  end,
+},
   'ThePrimeagen/git-worktree.nvim',
 	{
 	  'nvim-lualine/lualine.nvim',
@@ -121,36 +156,22 @@ require('lazy').setup({
     cmd = "Copilot",
     event = "InsertEnter",
   },
-
+	 {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = {
+      { "nvim-lua/plenary.nvim", branch = "master" },
+    },
+    build = "make tiktoken",
+    opts = {
+      -- See Configuration section for options
+    },
+  },
   {
     "zbirenbaum/copilot-cmp",
     config = function()
       require("copilot_cmp").setup()
     end,
   },
-
-	{
-  "gutsavgupta/nvim-gemini-companion",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  event = "VeryLazy",
-  config = function()
-    require("gemini").setup()
-  end,
-  keys = {
-			  {
-    '<Esc>',
-    '<C-\\><C-n>',
-    mode = 't',
-    desc = 'Exit terminal mode',
-  },
-    { "<leader>gg", "<cmd>GeminiToggle<cr>", desc = "Toggle Gemini sidebar" },
-    { "<leader>gc", "<cmd>GeminiSwitchToCli<cr>", desc = "Spawn or switch to AI session" },
-    { "<leader>gS", function() 
-        vim.cmd('normal! gv')
-        vim.cmd("'<,'>GeminiSend")
-      end, mode = { 'x' }, desc = 'Send selection to AI' },
-  }
-},
 
   'tpope/vim-fugitive',
 	{

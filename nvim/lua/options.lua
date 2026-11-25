@@ -72,6 +72,7 @@ vim.wo.signcolumn = 'yes'
 -- Set colorscheme
 -- vim.cmd.colorscheme "onedark"
 vim.cmd.colorscheme "nord"
+-- vim.cmd.colorscheme "coal"
 
 --vim.cmd()
 vim.opt.clipboard = 'unnamedplus'
@@ -79,9 +80,6 @@ vim.opt.clipboard = 'unnamedplus'
 -- Set completeopt to have a better completion experience
 
 vim.o.completeopt = 'menuone,noselect'
-
--- Concealer for Neorg
-vim.o.conceallevel=2
 
 -- [[ Basic Keymaps ]]
 -- Set <space> as the leader key

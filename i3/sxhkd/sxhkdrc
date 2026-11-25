@@ -314,11 +314,11 @@ XF86AudioMute
 
 # Brightness Up (Media Key)
 XF86MonBrightnessUp
-	xbacklight +10
+	brightnessctl set 5%+
 
 # Brightness Down (Media Key)
 XF86MonBrightnessDown
-	xbacklight -10
+	~/.config/i3/scripts/brightnessDown
 
 # === SCREENSHOTS ===
 

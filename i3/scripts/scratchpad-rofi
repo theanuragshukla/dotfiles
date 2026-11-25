@@ -1,0 +1,16 @@
+#!/bin/bash
+
+CHOICE=$(i3-msg -t get_tree | jq -r '
+  recurse(.nodes[]) | 
+  select(.name == "__i3_scratch") | 
+  .. | 
+  select(.window? != null) | 
+  "\(.window) \(.name)"
+' | rofi -dmenu -p "Scratchpad:" -i)
+
+# If an option was selected, extract the window ID and summon it
+if [ -not -z "$CHOICE" ]; then
+    WIN_ID=$(echo "$CHOICE" | awk '{print $1}')
+    i3-msg "[id=$WIN_ID] scratchpad show"
+fi
+
